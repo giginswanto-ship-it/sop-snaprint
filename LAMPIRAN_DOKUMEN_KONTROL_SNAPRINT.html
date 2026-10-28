@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUNDEL MASTER LAMPIRAN &amp; DOKUMEN KONTROL OPERASIONAL</title>
+  <style>
+    :root {
+      --primary: #0A2647;
+      --primary-light: #144272;
+      --secondary: #2C74B3;
+      --accent: #D89216;
+      --dark: #1E293B;
+      --gray-bg: #F8FAFC;
+      --gray-border: #E2E8F0;
+      --text: #334155;
+      --success: #166534;
+      --success-bg: #DCFCE7;
+      --danger: #991B1B;
+      --danger-bg: #FEE2E2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background-color: #EDF2F7;
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .btn-group { display: flex; gap: 10px; }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-download { background: var(--accent); color: #111827; }
+    .btn-download:hover { background: #F59E0B; transform: translateY(-1px); }
+    .btn-secondary { background: rgba(255, 255, 255, 0.15); color: #FFFFFF; }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.25); }
+    .app-container {
+      display: flex;
+      max-width: 1440px;
+      margin: 0 auto;
+      min-height: calc(100vh - 60px);
+    }
+    .sidebar {
+      width: 330px;
+      background: #FFFFFF;
+      border-right: 1px solid var(--gray-border);
+      position: sticky;
+      top: 57px;
+      height: calc(100vh - 57px);
+      overflow-y: auto;
+      padding: 20px 16px;
+      flex-shrink: 0;
+    }
+    .sidebar-toc h3 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 6px; }
+    .toc-list a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+    .toc-list a:hover { background: #EFF6FF; color: var(--secondary); }
+    .toc-level-1 { font-weight: 700; margin-top: 14px; }
+    .toc-level-1 a { color: var(--primary); }
+    .toc-level-2 { font-weight: 600; padding-left: 10px; }
+    .toc-level-3 { padding-left: 20px; font-size: 0.82rem; color: #64748B; }
+    .main-content {
+      flex: 1;
+      padding: 40px;
+      background: #FFFFFF;
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      max-width: 1020px;
+    }
+    .cover-card {
+      background: linear-gradient(135deg, #0A2647 0%, #144272 60%, #205295 100%);
+      color: #FFFFFF;
+      padding: 50px 40px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(10, 38, 71, 0.3);
+      border-top: 6px solid var(--accent);
+      text-align: center;
+    }
+    .cover-card h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+    }
+    .cover-card .operator-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #E2E8F0;
+    }
+    .cover-card h2 {
+      font-size: 1.5rem;
+      color: #F8FAFC;
+      margin-bottom: 12px;
+      font-weight: 700;
+      border: none;
+      padding: 0;
+    }
+    .cover-card .sub-title {
+      font-size: 1.05rem;
+      color: #CBD5E1;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+    }
+    h1, h2, h3, h4, h5 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      scroll-margin-top: 80px;
+    }
+    h1 { font-size: 1.8rem; border-bottom: 3px solid var(--primary); padding-bottom: 8px; }
+    h2 { font-size: 1.4rem; border-bottom: 2px solid var(--gray-border); padding-bottom: 6px; margin-top: 40px; }
+    h3 { font-size: 1.2rem; margin-top: 28px; }
+    h4 { font-size: 1.05rem; color: var(--secondary); }
+    p { margin-bottom: 14px; color: #334155; }
+    ul, ol { margin-bottom: 16px; padding-left: 24px; }
+    li { margin-bottom: 6px; }
+    hr.section-divider { border: 0; height: 1px; background: #E2E8F0; margin: 36px 0; }
+    .sop-card-header {
+      background: #F1F5F9;
+      border-left: 5px solid var(--secondary);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 36px;
+    }
+    .table-responsive {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+      border: 1px solid var(--gray-border);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: #FFFFFF; }
+    th {
+      background: #F8FAFC;
+      color: var(--primary);
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--gray-border); color: #334155; vertical-align: top; }
+    tr:nth-child(even) td { background: #FAFAFA; }
+    tr:hover td { background: #F1F5F9; }
+    .callout { padding: 16px 20px; border-radius: 8px; margin: 20px 0; font-size: 0.95rem; border-left: 4px solid; }
+    .callout-important { background: #FFFBEB; border-color: #D97706; color: #92400E; }
+    .callout-warning { background: var(--danger-bg); border-color: var(--danger); color: var(--danger); }
+    .callout-tip { background: var(--success-bg); border-color: var(--success); color: var(--success); }
+    .callout-note { background: #EFF6FF; border-color: #3B82F6; color: #1E40AF; }
+    pre {
+      background: #0F172A;
+      color: #E2E8F0;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.82rem;
+      margin: 18px 0;
+      line-height: 1.45;
+    }
+    code.inline-code {
+      background: #F1F5F9;
+      color: #BE185D;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      font-size: 0.9em;
+    }
+    .math-inline { font-family: "Cambria Math", serif; font-weight: bold; color: #0369A1; padding: 0 4px; }
+    .search-box { margin-bottom: 16px; }
+    .search-input {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--gray-border);
+      font-size: 0.85rem;
+      outline: none;
+    }
+    @media print {
+      @page { size: A4; margin: 15mm; }
+      body { background: #FFFFFF !important; font-size: 10pt; color: #000000; }
+      .top-bar, .sidebar, .btn-group, .search-box { display: none !important; }
+      .app-container { display: block !important; margin: 0 !important; max-width: 100% !important; }
+      .main-content { margin: 0 !important; padding: 0 !important; box-shadow: none !important; max-width: 100% !important; }
+      .cover-card {
+        background: #0A2647 !important;
+        color: #FFFFFF !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-after: always;
+        padding: 60px 40px;
+      }
+      h1, h2 { page-break-after: avoid; }
+      h1 { page-break-before: always; }
+      .sop-card-header {
+        page-break-before: always;
+        background: #F1F5F9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      table, pre { page-break-inside: avoid; }
+      pre { background: #F8FAFC !important; color: #000000 !important; border: 1px solid #CBD5E1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand-title">
+      <span>SNAPRINT DIGITAL PRINTING</span>
+      <span class="brand-badge">Operational Control Forms</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆ Ke Atas</button>
+      <button class="btn btn-download" onclick="window.print()">📥 Unduh / Cetak PDF</button>
+    </div>
+  </header>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="search-box">
+        <input type="text" id="sopSearch" class="search-input" placeholder="🔍 Cari SOP / Form..." onkeyup="filterTOC()">
+      </div>
+      <nav class="sidebar-toc">
+<div class="toc-header"><h3>DAFTAR ISI</h3></div>
+<ul class="toc-list">
+  <li class="toc-level-1"><a href="#sec-snaprint-digital-printing">SNAPRINT DIGITAL PRINTING</a></li>
+  <li class="toc-level-3"><a href="#sec-operated-by-dutaglobaltech-com">operated by dutaglobaltech.com</a></li>
+  <li class="toc-level-1"><a href="#sec-bundel-master-lampiran-dokumen-kontrol-operasional">BUNDEL MASTER LAMPIRAN &amp; DOKUMEN KONTROL OPERASIONAL</a></li>
+  <li class="toc-level-2"><a href="#sec-format-standar-formulir-checklist-logbook-dokumen-kendali-mutu-7-modul-26-sop">Format Standar Formulir, Checklist, Logbook &amp; Dokumen Kendali Mutu (7 Modul / 26 SOP)</a></li>
+  <li class="toc-level-2"><a href="#sec-daftar-indeks-formulir-dokumen-kontrol">DAFTAR INDEKS FORMULIR &amp; DOKUMEN KONTROL</a></li>
+  <li class="toc-level-1"><a href="#sec-master-format-dokumen-kontrol-operasional-resmi">MASTER FORMAT DOKUMEN KONTROL OPERASIONAL RESMI</a></li>
+  <li class="toc-level-2"><a href="#sec-modul-1-operasional-layanan-pelanggan-front-office">MODUL 1: OPERASIONAL &amp; LAYANAN PELANGGAN (FRONT OFFICE)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fo-01-lembar-ceklis-harian-buka-tutup-gerai">[FRM-SNA-FO-01] LEMBAR CEKLIS HARIAN BUKA &amp; TUTUP GERAI</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fo-02-formulir-survei-kepuasan-konsumen-konsultasi-material">[FRM-SNA-FO-02] FORMULIR SURVEI KEPUASAN KONSUMEN &amp; KONSULTASI MATERIAL</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fo-03a-lembar-ceklis-audit-file-pra-cetak-pre-press">[FRM-SNA-FO-03A] LEMBAR CEKLIS AUDIT FILE PRA-CETAK (PRE-PRESS)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fo-03b-lembar-persetujuan-bukti-cetak-hard-proof-approval">[FRM-SNA-FO-03B] LEMBAR PERSETUJUAN BUKTI CETAK (HARD PROOF APPROVAL)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fo-04-master-surat-perintah-kerja-spk-job-ticket">[FRM-SNA-FO-04] MASTER SURAT PERINTAH KERJA (SPK / JOB TICKET)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fo-05-rekaman-keluhan-pelanggan-otorisasi-reprint">[FRM-SNA-FO-05] REKAMAN KELUHAN PELANGGAN &amp; OTORISASI REPRINT</a></li>
+  <li class="toc-level-2"><a href="#sec-modul-2-produksi-quality-control-back-office-qc">MODUL 2: PRODUKSI &amp; QUALITY CONTROL (BACK OFFICE / QC)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-prod-01-lembar-penjadwalan-kontrol-antrean-produksi">[FRM-SNA-PROD-01] LEMBAR PENJADWALAN &amp; KONTROL ANTREAN PRODUKSI</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-prod-02-logbook-produksi-uji-lembar-pertama">[FRM-SNA-PROD-02] LOGBOOK PRODUKSI &amp; UJI LEMBAR PERTAMA</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-prod-03-lembar-kendali-kualitas-finishing-pasca-cetak">[FRM-SNA-PROD-03] LEMBAR KENDALI KUALITAS FINISHING PASCA-CETAK</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-prod-04-register-cacat-produksi-label-qc-passed">[FRM-SNA-PROD-04] REGISTER CACAT PRODUKSI &amp; LABEL "QC PASSED"</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-prod-05-label-identitas-kemasan-bukti-serah-terima">[FRM-SNA-PROD-05] LABEL IDENTITAS KEMASAN &amp; BUKTI SERAH TERIMA</a></li>
+  <li class="toc-level-2"><a href="#sec-modul-3-perawatan-mesin-manajemen-aset-maintenance">MODUL 3: PERAWATAN MESIN &amp; MANAJEMEN ASET (MAINTENANCE)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-mnt-01-logbook-harian-perawatan-mesin-counter-click">[FRM-SNA-MNT-01] LOGBOOK HARIAN PERAWATAN MESIN &amp; COUNTER CLICK</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-mnt-02-ceklis-pemeliharaan-berkala-mingguan-bulanan">[FRM-SNA-MNT-02] CEKLIS PEMELIHARAAN BERKALA MINGGUAN &amp; BULANAN</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-mnt-03-tiket-laporan-gangguan-eskalasi-teknis">[FRM-SNA-MNT-03] TIKET LAPORAN GANGGUAN &amp; ESKALASI TEKNIS</a></li>
+  <li class="toc-level-2"><a href="#sec-modul-4-manajemen-inventaris-gudang-inventory">MODUL 4: MANAJEMEN INVENTARIS &amp; GUDANG (INVENTORY)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-inv-01a-kartu-kontrol-stok-rak-fisik-gudang-bin-card">[FRM-SNA-INV-01A] KARTU KONTROL STOK RAK FISIK GUDANG (BIN CARD)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-inv-01b-surat-permintaan-pembelian-bahan-purchase-request">[FRM-SNA-INV-01B] SURAT PERMINTAAN PEMBELIAN BAHAN (PURCHASE REQUEST)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-inv-02-berita-acara-penerimaan-barang-stiker-fifo">[FRM-SNA-INV-02] BERITA ACARA PENERIMAAN BARANG &amp; STIKER FIFO</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-inv-03-lembar-stock-opname-rekonsiliasi">[FRM-SNA-INV-03] LEMBAR STOCK OPNAME &amp; REKONSILIASI</a></li>
+  <li class="toc-level-2"><a href="#sec-modul-5-pengelolaan-sumber-daya-manusia-hrd-training">MODUL 5: PENGELOLAAN SUMBER DAYA MANUSIA (HRD &amp; TRAINING)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-hrd-01-penilaian-wawancara-uji-keterampilan-teknis">[FRM-SNA-HRD-01] PENILAIAN WAWANCARA &amp; UJI KETERAMPILAN TEKNIS</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-hrd-02-buku-log-pelatihan-karyawan-baru-14-hari">[FRM-SNA-HRD-02] BUKU LOG PELATIHAN KARYAWAN BARU 14 HARI</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-hrd-03-pakta-integritas-kerahasiaan-data-pelanggan">[FRM-SNA-HRD-03] PAKTA INTEGRITAS &amp; KERAHASIAAN DATA PELANGGAN</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-hrd-04-formulir-penilaian-kinerja-bulanan-kpi-scorecard">[FRM-SNA-HRD-04] FORMULIR PENILAIAN KINERJA BULANAN (KPI SCORECARD)</a></li>
+  <li class="toc-level-2"><a href="#sec-modul-6-keuangan-kasir-pelaporan-franchise-finance">MODUL 6: KEUANGAN, KASIR &amp; PELAPORAN FRANCHISE (FINANCE)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fin-01-berita-acara-rekonsiliasi-kas-shift-setoran">[FRM-SNA-FIN-01] BERITA ACARA REKONSILIASI KAS SHIFT &amp; SETORAN</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fin-02a-voucher-pengeluaran-kas-kecil-petty-cash">[FRM-SNA-FIN-02A] VOUCHER PENGELUARAN KAS KECIL (PETTY CASH)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fin-02b-form-reimbursement-penggantian-kas-kecil">[FRM-SNA-FIN-02B] FORM REIMBURSEMENT PENGGANTIAN KAS KECIL</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-fin-03-format-laporan-laba-rugi-royalties">[FRM-SNA-FIN-03] FORMAT LAPORAN LABA RUGI &amp; ROYALTIES</a></li>
+  <li class="toc-level-2"><a href="#sec-modul-7-keselamatan-kerja-tanggap-darurat-k3-hse">MODUL 7: KESELAMATAN KERJA &amp; TANGGAP DARURAT (K3 / HSE)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-k3-01-kartu-distribusi-inspeksi-alat-pelindung-diri-apd">[FRM-SNA-K3-01] KARTU DISTRIBUSI &amp; INSPEKSI ALAT PELINDUNG DIRI (APD)</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-k3-02-kartu-inspeksi-jarum-manometer-tabung-apar">[FRM-SNA-K3-02] KARTU INSPEKSI JARUM MANOMETER &amp; TABUNG APAR</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-k3-03a-kartu-kontrol-kedaluwarsa-kotak-p3k">[FRM-SNA-K3-03A] KARTU KONTROL KEDALUWARSA KOTAK P3K</a></li>
+  <li class="toc-level-3"><a href="#sec-frm-sna-k3-03b-laporan-investigasi-insiden-kecelakaan-kerja">[FRM-SNA-K3-03B] LAPORAN INVESTIGASI INSIDEN KECELAKAAN KERJA</a></li>
+  <li class="toc-level-1"><a href="#sec-lembar-pengesahan-dokumen-kontrol-operasional">LEMBAR PENGESAHAN DOKUMEN KONTROL OPERASIONAL</a></li>
+</ul>
+</nav>
+
+    </aside>
+    <main class="main-content">
+      <div class="cover-card">
+        <h1>SNAPRINT DIGITAL PRINTING</h1>
+        <div class="operator-tag">operated by dutaglobaltech.com</div>
+        <h2>BUNDEL MASTER LAMPIRAN &amp; DOKUMEN KONTROL OPERASIONAL</h2>
+        <p class="sub-title">Dokumen Standar Sistem Waralaba &amp; Tata Kelola Mutu Percetakan Digital</p>
+      </div>
+      <div id="sopContent"><h1 id="sec-snaprint-digital-printing" class="heading-1">SNAPRINT DIGITAL PRINTING</h1>
+<h3 id="sec-operated-by-dutaglobaltech-com" class="heading-3">operated by dutaglobaltech.com</h3>
+<hr class="section-divider" />
+<h1 id="sec-bundel-master-lampiran-dokumen-kontrol-operasional" class="heading-1">BUNDEL MASTER LAMPIRAN &amp; DOKUMEN KONTROL OPERASIONAL</h1>
+<h2 id="sec-format-standar-formulir-checklist-logbook-dokumen-kendali-mutu-7-modul-26-sop" class="heading-2">Format Standar Formulir, Checklist, Logbook &amp; Dokumen Kendali Mutu (7 Modul / 26 SOP)</h2>
+<hr class="section-divider" />
+<div class="table-responsive"><table>
+<thead><tr>
+  <th><strong>Informasi Dokumen</strong></th>
+  <th><strong>Spesifikasi Dokumen</strong></th>
+</tr></thead><tbody>
+<tr>
+  <td><strong>Kode Dokumen</strong></td>
+  <td>FRM-SNA-MASTER-2026-V1</td>
+</tr>
+<tr>
+  <td><strong>Status Dokumen</strong></td>
+  <td>Master Operational Control Templates (Dokumen Kontrol Resmi)</td>
+</tr>
+<tr>
+  <td><strong>Penerbit</strong></td>
+  <td>Divisi Operasional, Mutu &amp; Standarisasi Franchise Snaprint</td>
+</tr>
+<tr>
+  <td><strong>Pengelola Sistem</strong></td>
+  <td>PT Duta Global Tech (<em>dutaglobaltech.com</em>)</td>
+</tr>
+<tr>
+  <td><strong>Sifat Dokumen</strong></td>
+  <td>Sangat Rahasia (Strictly Confidential)</td>
+</tr>
+<tr>
+  <td><strong>Tanggal Efektif</strong></td>
+  <td>1 November 2026</td>
+</tr>
+<tr>
+  <td><strong>Target Pengguna</strong></td>
+  <td>Store Manager, Tim Kasir, Desainer Pre-Press, Operator Cetak, Finishing, HRD, Teknisi &amp; Keuangan</td>
+</tr>
+</tbody></table></div>
+<hr class="section-divider" />
+<div class="callout callout-note">[!NOTE]</div>
+<div class="callout callout-note">Seluruh template formulir di dalam bundel ini merupakan turunan langsung dari ketentuan <strong>Point 6 (Lampiran &amp; Dokumen Kontrol)</strong> pada masing-masing Standar Operasional Prosedur (SOP) Snaprint Digital Printing. Format ini wajib dicetak (<em>hardcopy</em>) atau diimplementasikan secara digital melalui sistem POS Cloud <strong>dutaglobaltech.com</strong>.</div>
+<hr class="section-divider" />
+<h2 id="sec-daftar-indeks-formulir-dokumen-kontrol" class="heading-2">DAFTAR INDEKS FORMULIR &amp; DOKUMEN KONTROL</h2>
+<pre><code>+-------------------------------------------------------------------------------------------------------+
+| INDEKS RESMI DOKUMEN KONTROL OPERASIONAL SNAPRINT                                                     |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL     | KODE FORMULIR        | NAMA FORMULIR / DOKUMEN KONTROL                                    |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL 1   | FRM-SNA-FO-01        | Checklist Harian Buka &amp; Tutup Gerai (Opening / Closing)             |
+| (Front    | FRM-SNA-FO-02        | Formulir Survei Kepuasan Konsumen (CSAT) &amp; Konsultasi Material     |
+|  Office)  | FRM-SNA-FO-03A       | Lembar Ceklis Pra-Cetak (Pre-Press Technical Checklist)            |
+|           | FRM-SNA-FO-03B       | Lembar Persetujuan Bukti Cetak (Hard Proof Approval Slip)          |
+|           | FRM-SNA-FO-04        | Format Fisik Surat Perintah Kerja (SPK / Job Ticket Barcode)       |
+|           | FRM-SNA-FO-05        | Rekaman Keluhan Pelanggan &amp; Otorisasi Cetak Ulang (Reprint Ticket) |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL 2   | FRM-SNA-PROD-01      | Lembar Manajemen Antrean &amp; Penjadwalan Produksi (Job Scheduling)   |
+| (Produksi | FRM-SNA-PROD-02      | Logbook Produksi &amp; Uji Lembar Pertama (First-Sheet Test Log)       |
+|  &amp; QC)    | FRM-SNA-PROD-03      | Checklist Pengendalian Mutu Finishing (Potong, Laminasi, Jilid)    |
+|           | FRM-SNA-PROD-04      | Tag Stempel "QC PASSED" &amp; Buku Register Cacat Produksi (Reject)    |
+|           | FRM-SNA-PROD-05      | Label Barcode Kemasan Paket &amp; Bukti Tanda Terima (POD Slip)        |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL 3   | FRM-SNA-MNT-01       | Logbook Harian Perawatan Mesin &amp; Lembar Kliping Nozzle Check       |
+| (Mainte-  | FRM-SNA-MNT-02       | Checklist Pemeliharaan Berkala Mingguan/Bulanan &amp; Kalibrasi Warna  |
+|  nance)   | FRM-SNA-MNT-03       | Tiket Laporan Kerusakan &amp; Eskalasi Servis (dutaglobaltech.com)     |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL 4   | FRM-SNA-INV-01A      | Kartu Stok Rak Fisik Gudang (Bin Card)                             |
+| (Inven-   | FRM-SNA-INV-01B      | Surat Permintaan Pengadaan Bahan Baku (Purchase Request - PR)      |
+|  tory)    | FRM-SNA-INV-02       | Berita Acara Penerimaan Barang (GRN) &amp; Stiker Masuk FIFO           |
+|           | FRM-SNA-INV-03       | Lembar Hitung Stock Opname Bulanan &amp; Berita Acara Rekonsiliasi     |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL 5   | FRM-SNA-HRD-01       | Formulir Wawancara &amp; Lembar Uji Keterampilan Teknis (Skill Test)   |
+| (HRD &amp;    | FRM-SNA-HRD-02       | Log Pelatihan Karyawan Baru 14 Hari &amp; Lembar Ujian Sertifikasi     |
+|  Training)| FRM-SNA-HRD-03       | Surat Pakta Integritas &amp; Kerahasiaan Data Pelanggan (NDA Karyawan) |
+|           | FRM-SNA-HRD-04       | Lembar Evaluasi Kinerja Karyawan Bulanan (KPI Scorecard Form)      |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL 6   | FRM-SNA-FIN-01       | Berita Acara Rekonsiliasi Kas Shift &amp; Penutupan Kasir Harian       |
+| (Finance) | FRM-SNA-FIN-02A      | Voucher Pengeluaran Kas Kecil (Petty Cash Voucher)                 |
+|           | FRM-SNA-FIN-02B      | Form Pengajuan Penggantian Dana Kas Kecil (Reimbursement Form)     |
+|           | FRM-SNA-FIN-03       | Laporan Laba Rugi Bulanan Gerai &amp; Form Perhitungan Royalty Fee     |
++-----------+----------------------+--------------------------------------------------------------------+
+| MODUL 7   | FRM-SNA-K3-01        | Kartu Distribusi &amp; Checklist Inspeksi Alat Pelindung Diri (APD)    |
+| (K3/HSE)  | FRM-SNA-K3-02        | Kartu Inspeksi Fisik &amp; Pengujian Tekanan Jarum Manometer APAR      |
+|           | FRM-SNA-K3-03A       | Kartu Cek Inventaris &amp; Kedaluwarsa Isi Kotak P3K                   |
+|           | FRM-SNA-K3-03B       | Formulir Laporan Investigasi Insiden Kecelakaan Kerja              |
++-----------+----------------------+--------------------------------------------------------------------+</code></pre>
+<hr class="section-divider" />
+<h1 id="sec-master-format-dokumen-kontrol-operasional-resmi" class="heading-1">MASTER FORMAT DOKUMEN KONTROL OPERASIONAL RESMI</h1>
+<hr class="section-divider" />
+<h2 id="sec-modul-1-operasional-layanan-pelanggan-front-office" class="heading-2">MODUL 1: OPERASIONAL &amp; LAYANAN PELANGGAN (FRONT OFFICE)</h2>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fo-01-lembar-ceklis-harian-buka-tutup-gerai" class="heading-3 sop-card-header">[FRM-SNA-FO-01] LEMBAR CEKLIS HARIAN BUKA &amp; TUTUP GERAI</h3>
+<p><em>(Rujukan: SOP-1.1 Persiapan Buka &amp; Tutup Gerai)</em></p>
+<pre><code>====================================================================================================
+                        SNAPRINT DIGITAL PRINTING - OUTLET DAILY CHECKLIST
+                                  operated by dutaglobaltech.com
+====================================================================================================
+Nama Gerai / Cabang : Snaprint .............................   Tanggal : ..... / ..... / 202...
+Nama Store Manager  : .....................................   Hari    : .......................
+Petugas Shift Buka  : .....................................   Petugas Shift Tutup : ...................
+
+BAGIAN I: PEMERIKSAAN BUKA GERAI (OPENING - 07.30 s/d 08.00)
++----+---------------------------------------------------------------+--------------+-------+
+| NO |                      ITEM PEMERIKSAAN                         | STATUS FISIK | PARAF |
+|    |                                                               |  OK  | TIDAK |  PIC  |
++----+---------------------------------------------------------------+------+-------+-------+
+|  1 | Absensi Biometrik Pagi: Seluruh staf opening hadir tepat waktu | [  ] | [  ]  | ..... |
+|  2 | Rolling Door &amp; Gembok: Tidak ada kerusakan/bekas percobaan bobol| [  ] | [  ]  | ..... |
+|  3 | Tata Udara Mesin: Suhu AC ruang produksi 20°C-24°C, RH 40%-60% | [  ] | [  ]  | ..... |
+|  4 | Penerangan: Lampu showroom, etalase, dan neon box menyala rapi | [  ] | [  ]  | ..... |
+|  5 | Kebersihan Showroom: Meja konter, lantai, sofa tunggu bersih   | [  ] | [  ]  | ..... |
+|  6 | Hardware Kasir: Komputer POS, Scanner, Mesin EDC aktif siap pakai| [  ] | [  ]  | ..... |
+|  7 | Modal Awal Kasir: Uang modal (Float Cash) pas Rp 500.000 dicek| [  ] | [  ]  | ..... |
+|  8 | Ketersediaan Display: Buku sampel swatch kertas &amp; display rapi | [  ] | [  ]  | ..... |
+|  9 | Fasilitas Tamu: Air galon dispenser terisi &amp; gelas kertas siap | [  ] | [  ]  | ..... |
+| 10 | Status Pintu: Papan gantung OPEN dipasang tepat pukul 08.00    | [  ] | [  ]  | ..... |
++----+---------------------------------------------------------------+------+-------+-------+
+
+BAGIAN II: PEMERIKSAAN TUTUP GERAI (CLOSING - 21.00 s/d 21.30)
++----+---------------------------------------------------------------+--------------+-------+
+| NO |                      ITEM PEMERIKSAAN                         | STATUS FISIK | PARAF |
+|    |                                                               |  OK  | TIDAK |  PIC  |
++----+---------------------------------------------------------------+------+-------+-------+
+|  1 | Status Pintu: Papan CLOSED dipasang tepat pukul 21.00         | [  ] | [  ]  | ..... |
+|  2 | Settlement EDC: Seluruh mesin bank telah di-batch settlement  | [  ] | [  ]  | ..... |
+|  3 | Rekonsiliasi Kas: Uang fisik dihitung pas dengan Z-Report POS | [  ] | [  ]  | ..... |
+|  4 | Brankas: Uang setoran harian disimpan di brankas terkunci rapi | [  ] | [  ]  | ..... |
+|  5 | Sistem Kasir &amp; Display: PC POS dan lampu showroom dimatikan   | [  ] | [  ]  | ..... |
+|  6 | Proteksi AC Mesin: AC RUANG MESIN PRODUKSI TETAP HIDUP 24 JAM | [  ] | [  ]  | ..... |
+|  7 | Kebersihan Akhir: Tempat sampah dikosongkan, lantai dipel wangi| [  ] | [  ]  | ..... |
+|  8 | Keamanan Fisik: Kran air tertutup rapat, pintu dikunci ganda   | [  ] | [  ]  | ..... |
++----+---------------------------------------------------------------+------+-------+-------+
+Catatan Khusus Supervisor: .........................................................................
+Tanda Tangan Store Manager : (....................................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fo-02-formulir-survei-kepuasan-konsumen-konsultasi-material" class="heading-3 sop-card-header">[FRM-SNA-FO-02] FORMULIR SURVEI KEPUASAN KONSUMEN &amp; KONSULTASI MATERIAL</h3>
+<p><em>(Rujukan: SOP-1.2 Standar Pelayanan, Konsultasi Cetak &amp; Greeting 3S)</em></p>
+<pre><code>====================================================================================================
+                        SNAPRINT DIGITAL PRINTING - CUSTOMER EXPERIENCE FORM
+====================================================================================================
+No. Nota / SPK     : ................................   Tanggal Transaksi : ........................
+Nama Pelanggan     : ................................   No. Telepon / WA  : ........................
+Nama Frontline CS  : ................................
+
+A. LEMBAR KONSULTASI SPESIFIKASI MATERIAL CETAK (Diisi oleh Staf CS bersama Pelanggan)
+Jenis Produk Cetak : [ ] Kartu Nama   [ ] Brosur/Flyer   [ ] Booklet/Buku   [ ] Box Kemasan
+                     [ ] Stiker Label [ ] Spanduk Banner [ ] Sertifikat     [ ] Merchandise Lain
+Rekomendasi Bahan  : [ ] HVS (70/80/100 gsm)            [ ] Art Paper (120/150 gsm)
+                     [ ] Art Carton (210/260/310 gsm)   [ ] Ivory (250/300 gsm)
+                     [ ] Fancy (Linen/Jasmine/Concorde) [ ] Stiker Vinyl / Chromo / Kraft
+Pilihan Finishing  : [ ] Laminasi Panas Doff / Glossy   [ ] Potong Siku / Custom Die-Cut
+                     [ ] Jilid Spiral Kawat / Lem Panas [ ] Mata Ayam Keliling Banner
+Waktu Penyelesaian : [ ] Layanan Express (1 - 2 Jam)   [ ] Layanan Reguler (1 Hari Kerja)
+
+B. SURVEI KEPUASAN PELANGGAN (Diisi oleh Pelanggan secara Mandiri / Tablet POS)
+Berikan tanda centang [X] pada penilaian pengalaman Anda hari ini:
++----+--------------------------------------------+---------------+-------+-------+------------+
+| NO |             KRITERIA PENILAIAN             | SANGAT PUAS   | PUAS  | CUKUP | TDK PUAS   |
+|    |                                            |    (Skor 5)   |(Skor 4| (Skor |  (Skor 1)  |
++----+--------------------------------------------+---------------+-------+-------+------------+
+|  1 | Keramahan &amp; Senyum Staf Front Office (3S)  |     [   ]     | [   ] | [   ] |   [   ]    |
+|  2 | Kejelasan Edukasi Pilihan Bahan &amp; Desain   |     [   ]     | [   ] | [   ] |   [   ]    |
+|  3 | Ketepatan Waktu Janji Selesai Pesanan      |     [   ]     | [   ] | [   ] |   [   ]    |
+|  4 | Kerapian, Warna &amp; Kualitas Hasil Cetakan   |     [   ]     | [   ] | [   ] |   [   ]    |
+|  5 | Kenyamanan &amp; Kebersihan Ruang Tunggu Toko  |     [   ]     | [   ] | [   ] |   [   ]    |
++----+--------------------------------------------+---------------+-------+-------+------------+
+Kritik, Saran &amp; Masukan Tambahan: ..................................................................
+....................................................................................................</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fo-03a-lembar-ceklis-audit-file-pra-cetak-pre-press" class="heading-3 sop-card-header">[FRM-SNA-FO-03A] LEMBAR CEKLIS AUDIT FILE PRA-CETAK (PRE-PRESS)</h3>
+<p><em>(Rujukan: SOP-1.3 Pemeriksaan File &amp; Pra-Cetak)</em></p>
+<pre><code>====================================================================================================
+                     SNAPRINT DIGITAL PRINTING - PRE-PRESS TECHNICAL CHECKLIST
+====================================================================================================
+No. SPK           : ................................   Nama File Server: ...........................
+Nama Desainer     : ................................   Folder Lokasi   : D:\DATA_ORDER\.............
+
++----+----------------------------+-----------------------------+--------------+-------------------+
+| NO |    PARAMETER PEMERIKSAAN   |        STANDAR BAKU         | STATUS FILE  | KETERANGAN / AKSI |
+|    |                            |                             | PASS | FAIL  |   PERBAIKAN       |
++----+----------------------------+-----------------------------+------+-------+-------------------+
+|  1 | Ekstensi Format Dokumen    | PDF/X-1a, TIFF, AI/CDR Flat | [  ] | [  ]  | ................. |
+|  2 | Mode Warna (Color Space)   | CMYK (FOGRA39 / GRACoL)     | [  ] | [  ]  | RGB dikonversi    |
+|  3 | Resolusi Efektif Bitmap    | Min. 300 DPI (Plotter 150)  | [  ] | [  ]  | ................. |
+|  4 | Margin Bleed Potong Luar   | Minimal 2.0 mm - 3.0 mm     | [  ] | [  ]  | Ditambahkan bleed |
+|  5 | Batas Aman Teks (Safe Zone)| Minimal 3.0 mm dari trimline| [  ] | [  ]  | Posisi digeser    |
+|  6 | Status Font Teks           | Outlined / Converted Curves | [  ] | [  ]  | Di-convert manual |
+|  7 | Transparansi &amp; Overprint   | Flattened &amp; No Knockout Bug | [  ] | [  ]  | ................. |
+|  8 | Layout Imposisi A3+        | Crop mark &amp; Color bar ready | [  ] | [  ]  | N-up terpasang    |
++----+----------------------------+-----------------------------+------+-------+-------------------+
+Kesimpulan Audit Pre-Press : [ ] SIAP CETAK (READY TO RIP)   [ ] REVISI FILE DARI KONSUMEN
+Paraf Desainer Pre-Press   : (........................)       Tanggal/Jam: ...../...../202... - ...:...</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fo-03b-lembar-persetujuan-bukti-cetak-hard-proof-approval" class="heading-3 sop-card-header">[FRM-SNA-FO-03B] LEMBAR PERSETUJUAN BUKTI CETAK (HARD PROOF APPROVAL)</h3>
+<p><em>(Rujukan: SOP-1.3 Pemeriksaan File &amp; Pra-Cetak)</em></p>
+<pre><code>====================================================================================================
+                        SNAPRINT DIGITAL PRINTING - PROOF APPROVAL SLIP
+====================================================================================================
+No. SPK Target    : ................................   Tanggal Cetak Proof : ......................
+Nama Konsumen     : ................................   Jumlah Cetak Total  : ............. Lembar
+Nama Produk Cetak : ................................   Bahan Media Proof   : ......................
+
+PERNYATAAN PERSETUJUAN KONSUMEN (PROOF SIGN-OFF):
+Dengan menandatangani bukti cetak fisik (*Hard Proof*) terlampir ini, saya selaku pemesan menyatakan:
+1. Telah membaca, meneliti dan menyetujui seluruh tata letak (*layout*), tulisan, ejaan huruf (*typo*), 
+   nomor telepon, alamat, dan elemen desain grafis pada lembar sampel ini.
+2. Menyetujui hasil warna cetak fisik ini sebagai acuan standar produksi massal.
+3. Memahami bahwa setelah formulir ini ditandatangani, segala kesalahan desain atau ejaan kata yang 
+   lolos pemeriksaan menjadi tanggung jawab pemesan dan tidak dapat diklaim cetak ulang gratis.
+
+Tanda Tangan Persetujuan Konsumen,              Diverifikasi Desainer Pre-Press,
+
+(...........................................)   (...........................................)
+Nama Terang:                                    Nama Terang:</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fo-04-master-surat-perintah-kerja-spk-job-ticket" class="heading-3 sop-card-header">[FRM-SNA-FO-04] MASTER SURAT PERINTAH KERJA (SPK / JOB TICKET)</h3>
+<p><em>(Rujukan: SOP-1.4 Transaksi Kasir POS &amp; Penerbitan SPK)</em></p>
+<pre><code>====================================================================================================
+                      SNAPRINT DIGITAL PRINTING - SURAT PERINTAH KERJA (SPK)
+                              operated by dutaglobaltech.com
+====================================================================================================
+[BARCODE NOMOR SPK: |||||||||||||||||||||||||||||||]       STATUS: [ ] REGULER   [ ] EXPRESS KILAT
+NO. SPK          : SPK-............................       TGL/JAM MASUK : ...../...../202... - ...:...
+NAMA PELANGGAN   : ................................       JANJI SELESAI : ...../...../202... - ...:...
+NO. WHATSAPP     : ................................       KASIR INPUT   : ............................
+NAMA PERUSAHAAN  : ................................       LOKASI FILE   : D:\DATA_ORDER\..............
+----------------------------------------------------------------------------------------------------
+SPESIFIKASI TEKNIS PRODUKSI:
+Item Produk Cetak : ................................................................................
+Mesin Dialokasikan: [ ] Digital Press A3+ (Unit 01)     [ ] Wide-Format Eco-Solvent (Unit 02)
+                    [ ] Wide-Format UV Flatbed          [ ] Mesin Plotter Indoor Dye
+Bahan Baku Media  : .................................   Ukuran Potong Media: ...... mm x ...... mm
+Sisi Cetakan      : [ ] 1 Sisi (4/0)                    [ ] 2 Sisi Bolak-Balik (4/4)
+Jumlah Pesanan    : ................. Lembar / Buku / Pcs
+Finishing Wajib   : [ ] Potong Pas Siku        [ ] Laminasi Panas Doff       [ ] Laminasi Panas Gloss
+                    [ ] Jilid Spiral Kawat     [ ] Jilid Lem Panas (Binder)  [ ] Creasing / Lipat 3
+                    [ ] Cutting Stiker Die-Cut [ ] Mata Ayam Lubang Banner   [ ] Pasang Lakban Hitam
+Instruksi Khusus  : ................................................................................
+----------------------------------------------------------------------------------------------------
+KONTROL TAHAPAN KERJA &amp; INITIAL VERIFIKASI:
+1. Validasi Pre-Press : [ ] OK - Paraf: [ ..... ]  |  3. Finishing Pasca Cetak: [ ] OK - Paraf: [ ..... ]
+2. Cetak Selesai      : [ ] OK - Paraf: [ ..... ]  |  4. QC Lulus &amp; Kemas     : [ ] OK - Paraf: [ ..... ]
+----------------------------------------------------------------------------------------------------
+STATUS FINANSIAL (POS):
+Total Tagihan Pesanan : Rp ........................     Status : [ ] LUNAS 100%
+Uang Muka / DP        : Rp ........................              [ ] SISA PEMBAYARAN: Rp ...........
+Metode Pembayaran     : [ ] Tunai   [ ] QRIS   [ ] EDC Kartu   [ ] Transfer Bank Giro
+====================================================================================================</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fo-05-rekaman-keluhan-pelanggan-otorisasi-reprint" class="heading-3 sop-card-header">[FRM-SNA-FO-05] REKAMAN KELUHAN PELANGGAN &amp; OTORISASI REPRINT</h3>
+<p><em>(Rujukan: SOP-1.5 Penanganan Keluhan &amp; Retur Cetak)</em></p>
+<pre><code>====================================================================================================
+                 SNAPRINT DIGITAL PRINTING - COMPLAINT RECORD &amp; REPRINT PERMIT
+====================================================================================================
+Nomor Komplain   : CMP-...../...../202...              Tanggal Komplain : ...../...../202... - ...:...
+Nomor SPK Awal   : ..................................  Nama Konsumen    : ............................
+Nomor Telepon    : ..................................  Petugas Kasir    : ............................
+
+I. KLASIFIKASI KELUHAN KONSUMEN:
+[ ] Pergeseran Warna Parah (Delta E &gt; 3 vs Hard Proof)  [ ] Gambar Terpotong / Dimensi Salah Potong
+[ ] Cetakan Buram / Bergaris Banding / Kotor Rol        [ ] Sisi Bolak-Balik Tidak Presisi (&gt; 0.5 mm)
+[ ] Kuantitas Barang Jadi Kurang Dari Jumlah Nota       [ ] Finishing Rusak (Laminasi Menggelembung/Jilid)
+Deskripsi Keluhan: .................................................................................
+....................................................................................................
+
+II. INVESTIGASI TEKNIS GERAI (ROOT CAUSE ANALYSIS):
+Akar Masalah     : [ ] Kelalaian Setting Pre-Press      [ ] Masalah Mekanikal Mesin Cetak
+                   [ ] Kelalaian Operator Potong/Jilid  [ ] Kesalahan Konsumen (Salah file ACC)
+Penjelasan Analis: .................................................................................
+....................................................................................................
+
+III. KEPUTUSAN MANAJEMEN OUTLET:
+[ ] DISETUJUI CETAK ULANG GRATIS (100% FREE REPRINT - STATUS SUPER PRIORITY &lt; 60 MENIT)
+    Beban Biaya Material: [ ] Ditanggung Toko   [ ] Pemotongan Insiden Staf: ......................
+    Nomor SPK Baru Pengganti : SPK-REPRINT-............................
+[ ] DISETUJUI KOMPENSASI DISKON / PENGEMBALIAN SEBAGIAN DANA : Sebesar Rp ..........................
+[ ] DITOLAK SECARA RESMI (Hasil cetak masih dalam toleransi wajar SOP &amp; telah sesuai Proof ACC Sah)
+
+Konsumen Penggugat,          Investigator Outlet,           Menyetujui (Store Manager),
+
+(........................)   (..........................)   (..........................)</code></pre>
+<hr class="section-divider" />
+<h2 id="sec-modul-2-produksi-quality-control-back-office-qc" class="heading-2">MODUL 2: PRODUKSI &amp; QUALITY CONTROL (BACK OFFICE / QC)</h2>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-prod-01-lembar-penjadwalan-kontrol-antrean-produksi" class="heading-3 sop-card-header">[FRM-SNA-PROD-01] LEMBAR PENJADWALAN &amp; KONTROL ANTREAN PRODUKSI</h3>
+<p><em>(Rujukan: SOP-2.1 Manajemen Antrean Cetak)</em></p>
+<pre><code>====================================================================================================
+                   SNAPRINT DIGITAL PRINTING - JOB SCHEDULING &amp; BATCHING SHEET
+====================================================================================================
+Tanggal Produksi : ..... / ..... / 202...              Shift Kerja : [ ] Pagi   [ ] Malam
+Mesin Target     : [ ] Digital Press A3+   [ ] Outdoor Plotter   [ ] Indoor UV Flatbed
+
++----+-------------+---------------+-------------------+--------+-----------+------------+-------+
+| NO |  NOMOR SPK  | NAMA KONSUMEN |  BAHAN &amp; GRAMATUR | JUMLAH | PRIORITAS | STATUS RUN | PARAF |
+|    |             |               | (MEDIA BATCHING)  | LEMBAR | P1/P2/P3  | QUEUE/DONE |  OPR  |
++----+-------------+---------------+-------------------+--------+-----------+------------+-------+
+|  1 | SPK-....... | ............. | Art Carton 260    | ...... | P1 (Expr) | [  ] Selesai| ..... |
+|  2 | SPK-....... | ............. | Art Carton 260    | ...... | P3 (Reg)  | [  ] Selesai| ..... |
+|  3 | SPK-....... | ............. | Art Paper 150     | ...... | P2 (Expr) | [  ] Selesai| ..... |
+|  4 | SPK-....... | ............. | Art Paper 150     | ...... | P3 (Reg)  | [  ] Selesai| ..... |
+|  5 | SPK-....... | ............. | Stiker Vinyl A3+  | ...... | P3 (Reg)  | [  ] Selesai| ..... |
+|  6 | SPK-....... | ............. | Flexi China 280   | ...... | P2 (Expr) | [  ] Selesai| ..... |
++----+-------------+---------------+-------------------+--------+-----------+------------+-------+
+Supervisor Produksi : (..................................)   Catatan Batch : .......................</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-prod-02-logbook-produksi-uji-lembar-pertama" class="heading-3 sop-card-header">[FRM-SNA-PROD-02] LOGBOOK PRODUKSI &amp; UJI LEMBAR PERTAMA</h3>
+<p><em>(Rujukan: SOP-2.2 Pengoperasian Mesin Digital Press &amp; Format Lebar)</em></p>
+<pre><code>====================================================================================================
+               SNAPRINT DIGITAL PRINTING - FIRST-SHEET INSPECTION &amp; RUN LOGBOOK
+====================================================================================================
+Mesin / Nomor Seri : ...................................   Tanggal : ..... / ..... / 202...
+Nama Operator      : ...................................   Profil ICC Dipakai : ....................
+
+A. VERIFIKASI CETAK LEMBAR PERTAMA (FIRST SHEET TEST PRINT)
+Nomor SPK : ................................   Jenis Bahan : ......................................
+Parameter Uji Coba Fisik Lembar Pertama:
+[ ] Kerapatan Warna Pekat Solid Black &amp; CMYK Lulus (Tidak Pudar)
+[ ] Kesejajaran Bolak-Balik Sisi Depan &amp; Belakang Presisi (Deviasi $\le 0.5\text{ mm}$)
+[ ] Lembar Cetak Bebas dari Garis Rol, Noda Toner Mengotori Background, atau Goresan
+[ ] Warna Cetakan Fisik Telah Dicocokkan dan Sesuai Terhadap Lembar Proof ACC Pelanggan
+Keputusan Lembar Pertama : [ ] LULUS - MULAI OPLAH MASSAL    [ ] GAGAL - KALIBRASI ULANG RIP
+Paraf Verifikasi Operator: (..................................)
+
+B. CATATAN RUNNING PRODUKSI OPLAH PENUH
++----+-----------+---------------+--------------+---------------+---------------+------------------+
+| NO | NOMOR SPK | COUNTER AWAL  | COUNTER AKHIR| JUMLAH OUTPUT | JUMLAH WASTE  | KETERANGAN CACAT |
++----+-----------+---------------+--------------+---------------+---------------+------------------+
+|  1 |           |               |              |               |               |                  |
+|  2 |           |               |              |               |               |                  |
+|  3 |           |               |              |               |               |                  |
++----+-----------+---------------+--------------+---------------+---------------+------------------+</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-prod-03-lembar-kendali-kualitas-finishing-pasca-cetak" class="heading-3 sop-card-header">[FRM-SNA-PROD-03] LEMBAR KENDALI KUALITAS FINISHING PASCA-CETAK</h3>
+<p><em>(Rujukan: SOP-2.3 Proses Pasca Cetak / Finishing)</em></p>
+<pre><code>====================================================================================================
+                  SNAPRINT DIGITAL PRINTING - POST-PRESS QUALITY CONTROLLER
+====================================================================================================
+Tanggal Kerja : ..... / ..... / 202...                 Petugas Finishing : .........................
+Nomor SPK     : ...................................    Jenis Produk      : .........................
+
+CEKLIS PARAMETER TEKNIS FINISHING:
+1. Mesin Pemotong Kertas (Guillotine Cutter):
+   - Ketajaman Pisau Potong      : [ ] Tajam Bersih      [ ] Bergerigi/Ganti Pisau
+   - Toleransi Presisi Siku      : Panjang: ...... mm | Lebar: ...... mm (Deviasi maks $\pm 0.5\text{ mm}$)
+   - Sudut Kemiringan Potong     : [ ] Presisi Siku 90 Derajat Sempurna
+2. Mesin Laminasi (Thermal / Cold):
+   - Suhu Pengaturan Pemanas     : [ ] 95°C - 105°C (Terverifikasi Stabil)
+   - Mutu Lapisan Film           : [ ] Bebas Gelembung Angin   [ ] Bebas Kerutan/Debu
+   - Kelengkungan Lembar         : [ ] Rata Datar (Tidak Menggulung / Curling)
+3. Penjilidan (Spiral Kawat / Lem Panas):
+   - Kedalaman Milling Lem Panas : [ ] Coakan Punggung Sempurna (Lem Meresap Kuat)
+   - Suhu Leleh Lem Blok         : [ ] 160°C - 170°C Terukur
+   - Kerapian Kawat Spiral       : [ ] Bulat Simetris Rapat (Tidak Ada Halaman Rontok)
+4. Finishing Format Lebar (Banner):
+   - Lipatan Keliman Seaming     : [ ] Lebar Kelim 2.5 cm Rata Terlem Kuat
+   - Kekuatan Mata Ayam          : [ ] Terjepit Kokoh pada 4 Sudut &amp; Keliling
+
+Paraf Operator Finishing : (............................)  Diverifikasi QC : (......................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-prod-04-register-cacat-produksi-label-qc-passed" class="heading-3 sop-card-header">[FRM-SNA-PROD-04] REGISTER CACAT PRODUKSI &amp; LABEL "QC PASSED"</h3>
+<p><em>(Rujukan: SOP-2.4 Pengendalian Mutu Akhir)</em></p>
+<pre><code>====================================================================================================
+                        SNAPRINT DIGITAL PRINTING - DEFECT REGISTER LOGBOOK
+====================================================================================================
+Bulan / Tahun : ..................................     Outlet : ....................................
+
++----+-------+-----------+--------------------+--------+--------------------+-------------+--------+
+| TGL| NO SPK| JENIS ITEM| SUMBER CACAT       | JUMLAH | AKAR PENYEBAB      | TINDAKAN    | STATUS |
+|    |       |           | PREPRESS/PRINT/FIN | RUSAK  | KELALAIAN/MESIN    | PERBAIKAN   | BIAYA  |
++----+-------+-----------+--------------------+--------+--------------------+-------------+--------+
+|    |       |           |                    |        |                    |             |        |
+|    |       |           |                    |        |                    |             |        |
++----+-------+-----------+--------------------+--------+--------------------+-------------+--------+
+
+FORMAT CETAK STIKER STEMPEL HIJAU "QC PASSED" (Ditempelkan di Dokumen SPK &amp; Paket Selesai):
++-------------------------------------------------------------+
+|               ★ SNAPRINT QUALITY CONTROL ★                  |
+|                   PASSED - ZERO DEFECT                      |
+|                                                             |
+| No. SPK      : ............................................ |
+| Waktu Cek    : Tgl: ...../...../202...   Pukul: ...:... WIB |
+| 4 Titik Cek  : [X] Ukuran Potong   [X] Registrasi Bolak-Balik|
+|                [X] Akurasi Warna   [X] Jumlah Hitungan Pas  |
+| Petugas QC   : (..........................................) |
++-------------------------------------------------------------+</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-prod-05-label-identitas-kemasan-bukti-serah-terima" class="heading-3 sop-card-header">[FRM-SNA-PROD-05] LABEL IDENTITAS KEMASAN &amp; BUKTI SERAH TERIMA</h3>
+<p><em>(Rujukan: SOP-2.5 Pengemasan &amp; Penyerahan Barang)</em></p>
+<pre><code>FORMAT LABEL KEMASAN PAKET BARANG JADI (Ditempel pada kemasan luar anti-air):
++--------------------------------------------------------------------------------------------------+
+| SNAPRINT DIGITAL PRINTING                                             operated by dutaglobaltech |
+|--------------------------------------------------------------------------------------------------|
+| NOMOR SPK     : SPK-............................   TANGGAL SELESAI : ...../...../202...          |
+| NAMA KONSUMEN : ................................   NOMOR TELEPON   : ........................... |
+| JENIS PRODUK  : ................................   JUMLAH TOTAL    : ............. Lembar / Boks |
+| KOLI PAKET    : Paket Ke: [ ..... ] dari Total: [ ..... ] Paket                                  |
+| STATUS BAYAR  : [ ] LUNAS                          [ ] SISA TAGIHAN: Rp ........................ |
++--------------------------------------------------------------------------------------------------+
+
+LEMBAR BUKTI TANDA TERIMA SERAH TERIMA BARANG (HANDOVER SLIP / POD):
+Telah diserahkan pesanan dalam kondisi utuh, rapi, dan sesuai pesanan kepada konsumen/kurir:
+Diterima Oleh (Konsumen / Kurir),               Diserahkan Oleh (Kasir / Petugas Handover),
+
+(...........................................)   (...........................................)
+Nama Terang: ................................   Nama Terang: ................................
+No. Polisi / No. Resi Kurir: ................   Tanggal &amp; Jam: ...../...../202... - ...:...</code></pre>
+<hr class="section-divider" />
+<h2 id="sec-modul-3-perawatan-mesin-manajemen-aset-maintenance" class="heading-2">MODUL 3: PERAWATAN MESIN &amp; MANAJEMEN ASET (MAINTENANCE)</h2>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-mnt-01-logbook-harian-perawatan-mesin-counter-click" class="heading-3 sop-card-header">[FRM-SNA-MNT-01] LOGBOOK HARIAN PERAWATAN MESIN &amp; COUNTER CLICK</h3>
+<p><em>(Rujukan: SOP-3.1 Perawatan Harian Mesin Percetakan)</em></p>
+<pre><code>====================================================================================================
+                     SNAPRINT DIGITAL PRINTING - DAILY MACHINE MAINTENANCE LOG
+====================================================================================================
+Nama Mesin : ...................................   Bulan / Tahun : .................................
+Tipe Model : ...................................   Nomor Seri    : .................................
+
++-----+---------------+---------------+---------------+-------------+-------------------+----------+
+| TGL | COUNTER AWAL  | COUNTER AKHIR | KLIK PRODUKSI | STATUS TEST | URAIAN PEMBERSIHAN| PARAF    |
+|     | (PAGI HARI)   | (MALAM HARI)  | (TOTAL LEMBAR)| NOZZLE HEAD | CAP/WIPER/CORONA  | OPERATOR |
++-----+---------------+---------------+---------------+-------------+-------------------+----------+
+| 01  |               |               |               | [ ] Normal  |                   |          |
+| 02  |               |               |               | [ ] Normal  |                   |          |
+| 03  |               |               |               | [ ] Normal  |                   |          |
++-----+---------------+---------------+---------------+-------------+-------------------+----------+
+KOTAK TEMPAT MENEMPELKAN KLIPING FISIK UJI NOZZLE PAGI (NOZZLE CHECK STRIP):
++--------------------------------------------------------------------------------------------------+
+| (Tempelkan hasil cetak strip Nozzle Check pagi di sini untuk memantau degenerasi head berkala)   |
+|                                                                                                  |
++--------------------------------------------------------------------------------------------------+</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-mnt-02-ceklis-pemeliharaan-berkala-mingguan-bulanan" class="heading-3 sop-card-header">[FRM-SNA-MNT-02] CEKLIS PEMELIHARAAN BERKALA MINGGUAN &amp; BULANAN</h3>
+<p><em>(Rujukan: SOP-3.2 Pemeliharaan Berkala Mesin)</em></p>
+<pre><code>====================================================================================================
+                 SNAPRINT DIGITAL PRINTING - PREVENTATIVE MAINTENANCE CHECKLIST
+====================================================================================================
+Unit Mesin : ...................................   Periode Perawatan: [ ] Mingguan  [ ] Bulanan
+
+BAGIAN I: PEMELIHARAAN MINGGUAN (Setiap Hari Minggu Sore)
+[ ] Bersihkan dan lumasi rel gerak linear guide carriage dengan minyak viskositas ringan (White Oil)
+[ ] Bersihkan strip transparan encoder dari percikan debu tinta dengan lap microfiber alkohol IPA
+[ ] Lumasi gear roda gigi dan poros ulir pemutar mesin pemotong guillotine dengan gemuk lithium
+[ ] Bersihkan sisa debu kertas pada rol penarik dan tray kertas dengan kain antistatik
+Paraf Teknisi Mingguan : (..............................)   Tanggal: ...../...../202...
+
+BAGIAN II: PEMELIHARAAN BULANAN (Setiap Tanggal 28 Akhir Bulan)
+[ ] Kalibrasi Spektrofotometer: Pemindaian 1.500 patch warna (X-Rite i1Pro) untuk pembaharuan profil ICC
+[ ] Pembersihan Filter Udara: Vacuum cleaner filter pendingin intake fan mesin digital press
+[ ] Rejuvenasi Rol Karet: Pembersihan pick-up feed roller menggunakan rubber rejuvenator
+[ ] Audit Sistem Kelistrikan: Pengukuran voltase stabilizer (harus 220V $\pm 2\%$) &amp; Grounding ($\le 2\ \Omega$)
+Nilai Hambatan Tanah Terukur : ........... Ohm (Target: &lt; 2.0 Ohm)
+Paraf Teknisi Bulanan : (..............................)   Diverifikasi Store Manager: (............)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-mnt-03-tiket-laporan-gangguan-eskalasi-teknis" class="heading-3 sop-card-header">[FRM-SNA-MNT-03] TIKET LAPORAN GANGGUAN &amp; ESKALASI TEKNIS</h3>
+<p><em>(Rujukan: SOP-3.3 Penanganan Masalah Cepat &amp; Troubleshooting)</em></p>
+<pre><code>====================================================================================================
+                SNAPRINT DIGITAL PRINTING - TECHNICAL INCIDENT &amp; ESCALATION TICKET
+                               support portal: dutaglobaltech.com
+====================================================================================================
+Nomor Tiket Kerusakan: TKT-...../...../202...          Waktu Kejadian  : ...../...../202... - ...:...
+Nama Outlet / Cabang : ..............................  Nama Operator   : ............................
+Tipe Mesin Bermasalah: ..............................  Nomor Seri Mesin: ............................
+
+I. INDIKASI KERUSAKAN &amp; STATUS EROR:
+Kode Eror Layar Mesin: .............................................................................
+Gejala Kerusakan     : [ ] Mati Total (Power Failure)         [ ] Kemacetan Berulang (Persistent Jam)
+                       [ ] Fuser Unit Terbakar / Bunyi Kasar  [ ] Board Controller Tidak Merespon RIP
+                       [ ] Head Tinta Patah / Voltage Error   [ ] Kualitas Rusak Parah Tidak Bisa ACC
+Deskripsi Kronologi  : .............................................................................
+....................................................................................................
+
+II. UPAYA PENANGANAN MANDIRI LEVEL 1 YANG TELAH DILAKUKAN:
+[ ] Matikan sakelar utama, diamkan 5 menit, dan hidupkan kembali (Power Cycle)
+[ ] Pengecekan tidak ada sisa serpihan sobekan kertas di dalam roller sensor
+[ ] Pembersihan kawat korona dan pengujian nozzle printhead mandiri
+Hasil Level 1        : [ ] GAGAL - MEMBUTUHKAN BANTUAN TEKNISI PUSAT DUTAGLOBALTECH.COM
+
+III. ESKALASI KE TIM PUSAT:
+Waktu Lapor Hotline  : Jam: ......:...... WIB          Petugas Helpdesk Penerima : ..................
+Lampiran Bukti       : [ ] Foto Layar Kode Eror        [ ] Video Durasi 15 Detik Kejadian
+Jadwal Kunjungan Teknisi: Tanggal: ...../...../202...  Target Penyelesaian: Max 1 x 24 Jam Kerja
+
+Store Manager Pelapor,                           Technical Support Lead (dutaglobaltech.com),
+
+(...........................................)    (...........................................)</code></pre>
+<hr class="section-divider" />
+<h2 id="sec-modul-4-manajemen-inventaris-gudang-inventory" class="heading-2">MODUL 4: MANAJEMEN INVENTARIS &amp; GUDANG (INVENTORY)</h2>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-inv-01a-kartu-kontrol-stok-rak-fisik-gudang-bin-card" class="heading-3 sop-card-header">[FRM-SNA-INV-01A] KARTU KONTROL STOK RAK FISIK GUDANG (BIN CARD)</h3>
+<p><em>(Rujukan: SOP-4.1 Pengadaan Bahan Baku &amp; Reorder Point)</em></p>
+<pre><code>====================================================================================================
+                       SNAPRINT DIGITAL PRINTING - WAREHOUSE BIN CARD
+====================================================================================================
+Nama Material / Kertas: .............................   Lokasi Rak / Bin: ..........................
+Spesifikasi &amp; Ukuran  : .............................   Satuan Unit     : [ ] Rim  [ ] Rol  [ ] Boks
+Titik Pesan Ulang(ROP): ............ Satuan             Stok Pengaman   : ............ Satuan
+
++-----+--------------+------------------+-----------+------------+------------+-------+------------+
+| TGL | NO DOKUMEN   | KETERANGAN ASAL  | JML MASUK | JML KELUAR | SISA SALDO | PARAF | PERINGATAN |
+|     | (PO / SPK)   | / NO SPK ORDER   | (MASUK)   | (PRODUKSI) | AKHIR FISIK| STAF  | ROP STATUS |
++-----+--------------+------------------+-----------+------------+------------+-------+------------+
+|     |              | SALDO AWAL AWAL  |           |            |            |       |            |
+|     |              |                  |           |            |            |       | [ ] ORDER! |
+|     |              |                  |           |            |            |       | [ ] ORDER! |
++-----+--------------+------------------+-----------+------------+------------+-------+------------+</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-inv-01b-surat-permintaan-pembelian-bahan-purchase-request" class="heading-3 sop-card-header">[FRM-SNA-INV-01B] SURAT PERMINTAAN PEMBELIAN BAHAN (PURCHASE REQUEST)</h3>
+<p><em>(Rujukan: SOP-4.1 Pengadaan Bahan Baku &amp; Reorder Point)</em></p>
+<pre><code>====================================================================================================
+                    SNAPRINT DIGITAL PRINTING - PURCHASE REQUEST (PR FORM)
+====================================================================================================
+Nomor PR          : PR-...../...../202...              Tanggal Diajukan: ..... / ..... / 202...
+Nama Outlet       : .................................  Divisi Pemohon  : Gudang &amp; Inventaris
+Target Pengiriman : Logistik Pusat dutaglobaltech.com  Tingkat Urgensi : [ ] Reguler   [ ] Mendesak
+
++----+--------------------------------+--------+------------+------------+-------------------------+
+| NO |          NAMA MATERIAL         | SATUAN | SISA STOK  | JUMLAH PR  | ALASAN PENGADAAN        |
+|    |                                |        | DI GUDANG  | DIMINTA    | (ROP TERSENTUH / ORDER) |
++----+--------------------------------+--------+------------+------------+-------------------------+
+|  1 |                                |        |            |            |                         |
+|  2 |                                |        |            |            |                         |
+|  3 |                                |        |            |            |                         |
++----+--------------------------------+--------+------------+------------+-------------------------+
+Petugas Gudang Pemohon,          Diverifikasi Store Manager,       Disetujui Logistik Pusat,
+
+(............................)   (............................)    (............................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-inv-02-berita-acara-penerimaan-barang-stiker-fifo" class="heading-3 sop-card-header">[FRM-SNA-INV-02] BERITA ACARA PENERIMAAN BARANG &amp; STIKER FIFO</h3>
+<p><em>(Rujukan: SOP-4.2 Penerimaan &amp; Penyimpanan Stok)</em></p>
+<pre><code>====================================================================================================
+                  SNAPRINT DIGITAL PRINTING - GOODS RECEIPT NOTE (GRN)
+====================================================================================================
+Nomor GRN        : GRN-...../...../202...              Tanggal Penerimaan: ..... / ..... / 202...
+Nomor Surat Jalan: ..................................  Nama Vendor/Kurir : .........................
+Nomor PO Acuan   : ..................................  Nama Penerima     : .........................
+
+HASIL VERIFIKASI FISIK:
++----+--------------------+------------+------------+--------------+-------------------------------+
+| NO |    NAMA BARANG     | JML SESUAI | JML FISIK  | KONDISI      | KETERANGAN CATATAN CACAT      |
+|    |                    | SURAT JALAN| DITERIMA   | BAIK | CACAT | (PENYOK/LEMBAB/SEGEL RUSAK)   |
++----+--------------------+------------+------------+------+-------+-------------------------------+
+|  1 |                    |            |            | [  ] | [  ]  |                               |
+|  2 |                    |            |            | [  ] | [  ]  |                               |
++----+--------------------+------------+------------+------+-------+-------------------------------+
+Keputusan Penerimaan: [ ] DITERIMA LENGKAP &amp; BAIK    [ ] DITOLAK SEBAGIAN (RETUR KLAIM)
+
+Pengemudi Ekspedisi / Kurir,                     Petugas Pemeriksa Gudang,
+
+(...........................................)    (...........................................)
+
+FORMAT STIKER LABEL MASUK GUDANG (SISTEM FIFO - FIRST IN FIRST OUT):
++--------------------------------------------------------------------------------------------------+
+|                              ★ ATURAN GUDANG SNAPRINT: FIFO TAG ★                                |
+|                                                                                                  |
+| TANGGAL MASUK GUDANG : Tgl: ..... / ..... / 202...                                               |
+| NAMA MATERIAL        : ......................................................................... |
+| KODE LOT / BATCH     : ......................................................................... |
+| PERINGATAN OPERATOR  : "WAJIB DIPAKAI LEBIH DULU SEBELUM MEMBUKA RIM/ROL TANGGAL BARU"            |
++--------------------------------------------------------------------------------------------------+</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-inv-03-lembar-stock-opname-rekonsiliasi" class="heading-3 sop-card-header">[FRM-SNA-INV-03] LEMBAR STOCK OPNAME &amp; REKONSILIASI</h3>
+<p><em>(Rujukan: SOP-4.3 Audit Fisik Stok)</em></p>
+<pre><code>====================================================================================================
+                    SNAPRINT DIGITAL PRINTING - PHYSICAL STOCK AUDIT SHEET
+====================================================================================================
+Periode Audit : Akhir Bulan ............ 202...        Waktu Pelaksanaan : Jam 21.30 s/d Selesai
+Auditor 1     : ....................................   Auditor 2         : .........................
+
++----+---------------------+--------+-----------+-----------+------------+------------+------------+
+| NO |    NAMA MATERIAL    | SATUAN | SALDO POS | SALDO RIIL|  SELISIH   | PERSENTASE | EVALUASI   |
+|    |                     |        |  SISTEM   | FISIK RAK | FISIK - POS| SELISIH (%)| TOLERANSI  |
++----+---------------------+--------+-----------+-----------+------------+------------+------------+
+|  1 | Art Carton 260 A3+  | Rim    |           |           |            |            | Maks. 1.5% |
+|  2 | Art Paper 150 A3+   | Rim    |           |           |            |            | Maks. 1.5% |
+|  3 | HVS 80 gsm A3+      | Rim    |           |           |            |            | Maks. 1.5% |
+|  4 | Stiker Vinyl A3+    | Lembar |           |           |            |            | Maks. 1.5% |
+|  5 | Flexi China 280 gsm | Meter  |           |           |            |            | Maks. 1.5% |
+|  6 | Toner Black Pro     | Botol  |           |           |            |            | Nol Selisih|
+|  7 | Toner Cyan Pro      | Botol  |           |           |            |            | Nol Selisih|
+|  8 | Toner Magenta Pro   | Botol  |           |           |            |            | Nol Selisih|
+|  9 | Toner Yellow Pro    | Botol  |           |           |            |            | Nol Selisih|
+| 10 | Lem Binder Blok     | Kg     |           |           |            |            | Maks. 1.5% |
++----+---------------------+--------+-----------+-----------+------------+------------+------------+
+
+BERITA ACARA REKONSILIASI:
+Total Klik Mesin Bulanan : ................. Lembar  | Total Kertas Terpakai Riil : ................
+Selisih Tak Terjelaskan  : ................. %       | Status : [ ] DITERIMA     [ ] INVESTIGASI CCTV
+
+Auditor Fisik 1,             Auditor Fisik 2,             Mengetahui (Store Manager),
+
+(........................)   (........................)   (........................)</code></pre>
+<hr class="section-divider" />
+<h2 id="sec-modul-5-pengelolaan-sumber-daya-manusia-hrd-training" class="heading-2">MODUL 5: PENGELOLAAN SUMBER DAYA MANUSIA (HRD &amp; TRAINING)</h2>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-hrd-01-penilaian-wawancara-uji-keterampilan-teknis" class="heading-3 sop-card-header">[FRM-SNA-HRD-01] PENILAIAN WAWANCARA &amp; UJI KETERAMPILAN TEKNIS</h3>
+<p><em>(Rujukan: SOP-5.1 Standar Profil &amp; Rekrutmen Staf Outlet)</em></p>
+<pre><code>====================================================================================================
+                  SNAPRINT DIGITAL PRINTING - RECRUITMENT ASSESSMENT FORM
+====================================================================================================
+Nama Calon Karyawan : ...............................   Posisi Dilamar : [ ] Kasir Front Office
+Pendidikan Terakhir : ...............................                    [ ] Desainer Pre-Press
+Tanggal Penilaian   : ..... / ..... / 202...                             [ ] Operator Cetak / Finishing
+
+A. UJI KETERAMPILAN PRAKTIK TEKNIS (SKILL TEST - SKOR MAKS. 100)
+1. Kecepatan Memperbaiki File RGB Rusak Menjadi Siap Cetak (Bleed, Font, CMYK, Imposisi) : Skor [ .... ]
+2. Kecepatan &amp; Ketelitian Simulasi Perhitungan Transaksi Finansial Kasir POS             : Skor [ .... ]
+3. Uji Kemampuan Membedakan Gramatur Kertas &amp; Tes Buta Warna (Ishihara Test)             : Skor [ .... ]
+
+B. WAWANCARA SIKAP &amp; PERILAKU (BEHAVIORAL INTERVIEW - SKOR 1 - 5)
+1. Sikap Hospitalitas &amp; Kemampuan Menerapkan Senyum, Sapa, Salam (3S)                    : Skor [ .... ]
+2. Ketahanan Bekerja di Bawah Tekanan Tenggat Waktu Kilat (Stress Tolerance)             : Skor [ .... ]
+3. Integritas Kejujuran Finansial &amp; Komitmen Menjaga Rahasia File Konsumen               : Skor [ .... ]
+
+Rekomendasi Tim Rekrutmen:
+[ ] LOLOS - SEGERA DITERBITKAN PKWT &amp; ONBOARDING 14 HARI
+[ ] CADANGAN (POOLED CANDIDATE)
+[ ] TIDAK LOLOS KUALIFIKASI
+
+Pewawancara / Assessor,                          Store Manager / Franchisee Owner,
+
+(...........................................)    (...........................................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-hrd-02-buku-log-pelatihan-karyawan-baru-14-hari" class="heading-3 sop-card-header">[FRM-SNA-HRD-02] BUKU LOG PELATIHAN KARYAWAN BARU 14 HARI</h3>
+<p><em>(Rujukan: SOP-5.2 Kurikulum Pelatihan Staf Baru)</em></p>
+<pre><code>====================================================================================================
+                     SNAPRINT DIGITAL PRINTING - 14-DAY ONBOARDING LOGBOOK
+====================================================================================================
+Nama Karyawan Baru : ...............................   Posisi Kerja   : ............................
+Tanggal Mulai      : ..... / ..... / 202...            Nama Mentor PIC: ............................
+
++-------+-----------------------------------------------+--------------+---------------+-------+
+| HARI  | MATERI PELATIHAN TERJADWAL                    | TARGET SKILL | HASIL EVALUASI| PARAF |
+| KE-   |                                               |              | LULUS | ULANG | MENTOR|
++-------+-----------------------------------------------+--------------+-------+-------+-------+
+| 01-02 | Brand Value, Budaya 3S &amp; Bedah 7 Modul SOP    | Pemahaman SOP| [  ]  | [  ]  | ..... |
+| 03-04 | Pengenalan 30+ Material &amp; Batas Teknis Finish | Pengetahuan  | [  ]  | [  ]  | ..... |
+| 05-07 | Software POS, SPK, RIP Fiery &amp; Komplain L.A.S.T| Simulasi POS | [  ]  | [  ]  | ..... |
+| 08-10 | Praktik Digital Press, Nozzle Check &amp; Jamming | Operasional  | [  ]  | [  ]  | ..... |
+| 11-12 | Shadowing: Melayani Pelanggan Riil Terbimbing | Live Work    | [  ]  | [  ]  | ..... |
+| 13    | Ujian Tertulis SOP &amp; Praktik Produksi Mandiri | Ujian Akhir  | Skor Ujian: . | ..... |
+| 14    | Evaluasi Akhir, Sertifikasi &amp; Penyerahan Baju | Sertifikasi  | [  ] BERSERTIFIKAT    |
++-------+-----------------------------------------------+--------------+-----------------------+
+Keputusan Mentor : Karyawan dinyatakan [ ] LAYAK BEKERJA MANDIRI   [ ] PERPANJANG TRAINING 7 HARI</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-hrd-03-pakta-integritas-kerahasiaan-data-pelanggan" class="heading-3 sop-card-header">[FRM-SNA-HRD-03] PAKTA INTEGRITAS &amp; KERAHASIAAN DATA PELANGGAN</h3>
+<p><em>(Rujukan: SOP-5.3 Tata Tertib, Kedisiplinan &amp; Seragam)</em></p>
+<pre><code>====================================================================================================
+                     SURAT PERNYATAAN KERAHASIAAN DATA &amp; DOKUMEN KONSUMEN
+                             (EMPLOYEE NON-DISCLOSURE AGREEMENT)
+====================================================================================================
+Saya yang bertanda tangan di bawah ini:
+Nama Lengkap      : ................................................................................
+Nomor KTP / NIK   : ................................................................................
+Alamat Domisili   : ................................................................................
+Jabatan / Posisi  : ................................................................................
+Outlet Penempatan : Snaprint .......................................................................
+
+Dengan ini menyatakan sumpah dan komitmen integritas profesional bahwa:
+1. Menjaga kerahasiaan penuh atas seluruh file digital, materi cetak, dokumen negara, sertifikat tanah,
+   ijazah, kartu identitas, dan data rahasia perusahaan milik seluruh pelanggan Snaprint.
+2. Dilarang keras menyalin (*copy*), memperbanyak di luar SPK, memotret menggunakan kamera ponsel pribadi,
+   membagikan, atau menyebarluaskan data pelanggan kepada pihak mana pun untuk tujuan apa pun.
+3. Bersedia mematuhi jadwal penghapusan permanen seluruh file konsumen di komputer pre-press setiap 7 hari.
+4. Apabila saya terbukti melanggar butir-butir pernyataan di atas, saya bersedia dipecat seketika secara
+   tidak terhormat (PHK) dan dituntut di hadapan hukum berdasarkan UU Perlindungan Data Pribadi (UU PDP)
+   dan UU Informasi dan Transaksi Elektronik (UU ITE).
+
+Dibuat di : ..................................   Pada Tanggal : ..... / ..... / 202...
+Karyawan Pembuat Komitmen,                       Saksi (Store Manager),
+[Materai Rp 10.000]
+
+(...........................................)    (...........................................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-hrd-04-formulir-penilaian-kinerja-bulanan-kpi-scorecard" class="heading-3 sop-card-header">[FRM-SNA-HRD-04] FORMULIR PENILAIAN KINERJA BULANAN (KPI SCORECARD)</h3>
+<p><em>(Rujukan: SOP-5.4 Evaluasi Kinerja Karyawan)</em></p>
+<pre><code>====================================================================================================
+                  SNAPRINT DIGITAL PRINTING - MONTHLY EMPLOYEE KPI SCORECARD
+====================================================================================================
+Nama Karyawan : ...................................   Bulan / Tahun  : .............................
+Posisi Kerja  : [ ] Operator   [ ] Desainer   [ ] Kasir
+Nama Penilai  : ...................................   Jabatan        : Store Manager
+
++----+----------------------------------------+-------+--------+------------+------------+---------+
+| NO |          INDIKATOR KERJA UTAMA         | BOBOT | TARGET | HASIL RIIL | NILAI SKOR | TOTAL   |
+|    |               (KPI METRIC)             |       | STANDAR| TERCAPAI   | (0 - 100)  | TERBOBOT|
++----+----------------------------------------+-------+--------+------------+------------+---------+
+|  1 | Efisiensi &amp; Kontrol Waste Bahan Baku   |  35%  | &lt;= 2.0%| .......... | .......... | ....... |
+|  2 | Ketepatan Waktu Penyelesaian SPK       |  35%  | &gt;= 98% | .......... | .......... | ....... |
+|  3 | Kepatuhan Prosedur SOP &amp; Presensi Jam  |  30%  | 100%   | .......... | .......... | ....... |
++----+----------------------------------------+-------+--------+------------+------------+---------+
+TOTAL SKOR KINERJA BULANAN (TOTAL SCORE) : [ .......... / 100 ] -&gt; GRADE: [ A / B / C / D ]
+
+Klasifikasi Hasil Evaluasi:
+[ ] Grade A (Skor 90 - 100) : Kinerja Sangat Istimewa (Berhak atas Insentif Bonus Bulanan)
+[ ] Grade B (Skor 75 - 89)  : Kinerja Standar Baik Sesuai SOP
+[ ] Grade C (Skor 60 - 74)  : Pembinaan Khusus &amp; Konseling Ulang 7 Hari Kerja
+[ ] Grade D (Skor &lt; 60)     : Penerbitan Surat Peringatan (SP) &amp; Tinjauan Kelanjutan Kontrak
+
+Tanda Tangan Karyawan,                           Tanda Tangan Store Manager,
+
+(...........................................)    (...........................................)</code></pre>
+<hr class="section-divider" />
+<h2 id="sec-modul-6-keuangan-kasir-pelaporan-franchise-finance" class="heading-2">MODUL 6: KEUANGAN, KASIR &amp; PELAPORAN FRANCHISE (FINANCE)</h2>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fin-01-berita-acara-rekonsiliasi-kas-shift-setoran" class="heading-3 sop-card-header">[FRM-SNA-FIN-01] BERITA ACARA REKONSILIASI KAS SHIFT &amp; SETORAN</h3>
+<p><em>(Rujukan: SOP-6.1 Rekonsiliasi Kas Harian)</em></p>
+<pre><code>====================================================================================================
+                SNAPRINT DIGITAL PRINTING - CASH DRAWER RECONCILIATION SHEET
+====================================================================================================
+Outlet Cabang : ...................................   Hari / Tanggal  : ..... / ..... / 202...
+Nama Kasir    : ...................................   Shift Kerja     : [ ] Shift 1   [ ] Shift 2
+Terminal POS  : POS-01                                Jam Tutup Shift : ...:... WIB
+
+I. LAPORAN PENJUALAN SISTEM POS (Z-REPORT)
+   1. Total Penjualan Kotor (Gross Sales)         : Rp .............................................
+   2. Total Penjualan Non-Tunai EDC Kartu Bank    : Rp .............................................
+   3. Total Penerimaan Non-Tunai QRIS             : Rp .............................................
+   4. Total Piutang Belum Dilunasi                : Rp .............................................
+   5. TOTAL TARGET UANG FISIK TUNAI PENJUALAN     : Rp .............................................
+
+II. RINCIAN PERHITUNGAN FISIK UANG TUNAI (CASH COUNTING)
+   (Modal Awal Kasir Rp 500.000 telah disisihkan utuh ke tempat khusus)
+   - Uang Kertas Rp 100.000 : ............ Lembar = Rp .............................................
+   - Uang Kertas Rp  50.000 : ............ Lembar = Rp .............................................
+   - Uang Kertas Rp  20.000 : ............ Lembar = Rp .............................................
+   - Uang Kertas Rp  10.000 : ............ Lembar = Rp .............................................
+   - Uang Kertas Rp   5.000 : ............ Lembar = Rp .............................................
+   - Uang Kertas Rp   2.000 : ............ Lembar = Rp .............................................
+   - Uang Koin Logam Pecahan                       = Rp .............................................
+   TOTAL FISIK UANG PENJUALAN TERHITUNG           : Rp .............................................
+
+III. ANALISIS REKONSILIASI SELISIH KAS
+   Total Fisik Uang Penjualan Terhitung           : Rp .............................................
+   Total Target Uang Tunai Sistem POS             : Rp .............................................
+   STATUS SELISIH KAS (+ LEBIH / - KURANG)        : Rp .................... [ STATUS: NIHIL / PAS ]
+   (Catatan: Toleransi selisih adalah Rp 0. Kekurangan kas wajib ditutup saat itu juga oleh kasir)
+
+Kasir Pembuat Laporan,                           Supervisor / Store Manager Pemeriksa,
+
+(...........................................)    (...........................................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fin-02a-voucher-pengeluaran-kas-kecil-petty-cash" class="heading-3 sop-card-header">[FRM-SNA-FIN-02A] VOUCHER PENGELUARAN KAS KECIL (PETTY CASH)</h3>
+<p><em>(Rujukan: SOP-6.2 Pengelolaan Kas Kecil)</em></p>
+<pre><code>====================================================================================================
+                    SNAPRINT DIGITAL PRINTING - PETTY CASH VOUCHER (PCV)
+====================================================================================================
+Nomor Voucher    : PCV-...../...../202...              Tanggal Transaksi: ..... / ..... / 202...
+Dibayarkan Kepada: ..................................  Jumlah Uang      : Rp .......................
+Terbilang        : ................................................................................
+
+RINCIAN PERUNTUKAN PENGELUARAN OPERASIONAL LOKAL:
++----+---------------------------------------------------------------+-----------------------------+
+| NO |                 DESKRIPSI PENGELUARAN / KEBUTUHAN             |           NOMINAL           |
++----+---------------------------------------------------------------+-----------------------------+
+|  1 | Pembelian Air Minum Galon &amp; Konsumsi Darurat                  | Rp                          |
+|  2 | Pembelian ATK Lokal (Spidol, Lakban, Gunting, Steples)        | Rp                          |
+|  3 | Pembelian Perlengkapan Kebersihan (Cairan Pel, Sabun Cuci Lap)| Rp                          |
+|  4 | Ongkos Kirim Kurir Dokumen Kilat / BBM Operasional            | Rp                          |
++----+---------------------------------------------------------------+-----------------------------+
+TOTAL PENGELUARAN KAS KECIL : Rp ...................................................................
+(WAJIB MENEMPELKAN STRUK / NOTA ASLI TOKO DI BELAKANG FORMULIR INI)
+
+Penerima Uang Kas Kecil,        Kasir Pemegang Kas Kecil,        Disetujui Store Manager,
+
+(............................)  (............................)   (............................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fin-02b-form-reimbursement-penggantian-kas-kecil" class="heading-3 sop-card-header">[FRM-SNA-FIN-02B] FORM REIMBURSEMENT PENGGANTIAN KAS KECIL</h3>
+<p><em>(Rujukan: SOP-6.2 Pengelolaan Kas Kecil)</em></p>
+<pre><code>====================================================================================================
+             SNAPRINT DIGITAL PRINTING - PETTY CASH REIMBURSEMENT CLAIM FORM
+====================================================================================================
+Nomor Klaim      : CLM-...../...../202...              Tanggal Klaim   : ..... / ..... / 202...
+Outlet Cabang    : ..................................  Plafon Tetap    : Rp 1.500.000,-
+Sisa Kas di Boks : Rp ...............................  Jumlah Klaim    : Rp .......................
+
+Daftar Rekapitulasi Voucher Kas Kecil Terlampir:
+1. No. PCV: .................... Nominal: Rp ................. Tanggal: ...../...../202...
+2. No. PCV: .................... Nominal: Rp ................. Tanggal: ...../...../202...
+3. No. PCV: .................... Nominal: Rp ................. Tanggal: ...../...../202...
+Total Bukti Pengeluaran Riil Valid : Rp ............................................................
+
+Store Manager Pemohon,                           Finance Division (dutaglobaltech.com),
+
+(...........................................)    (...........................................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-fin-03-format-laporan-laba-rugi-royalties" class="heading-3 sop-card-header">[FRM-SNA-FIN-03] FORMAT LAPORAN LABA RUGI &amp; ROYALTIES</h3>
+<p><em>(Rujukan: SOP-6.3 Pelaporan Keuangan &amp; Perhitungan Royalty Fee)</em></p>
+<pre><code>====================================================================================================
+              SNAPRINT DIGITAL PRINTING - MONTHLY PROFIT &amp; LOSS &amp; ROYALTY STATEMENT
+====================================================================================================
+Periode Laporan : Bulan ........................ 202...   Nama Outlet: .............................
+
+I. PENDAPATAN USAHA (REVENUE)
+   1. Penjualan Cetak Digital Press A3+           : Rp .............................................
+   2. Penjualan Cetak Format Lebar (Banner/Plotter): Rp .............................................
+   3. Penjualan Merchandise &amp; Finishing Tambahan  : Rp .............................................
+   TOTAL PENDAPATAN KOTOR (GROSS REVENUE)         : Rp .............................................
+
+II. HARGA POKOK PENJUALAN (HPP / COGS)
+   1. Pemakaian Bahan Baku Kertas &amp; Media         : Rp .............................................
+   2. Pemakaian Toner Mesin &amp; Tinta Solvent       : Rp .............................................
+   3. Pemakaian Material Finishing (Laminasi/Lem) : Rp .............................................
+   TOTAL HARGA POKOK PENJUALAN (HPP)              : Rp .............................................
+   LABA KOTOR OPERASIONAL (GROSS PROFIT)          : Rp .............................................
+
+III. BEBAN OPERASIONAL OUTLET (OPEX)
+   1. Gaji &amp; Tunjangan Karyawan Gerai             : Rp .............................................
+   2. Biaya Listrik PLN 3-Phase &amp; Internet Fiber  : Rp .............................................
+   3. Biaya Sewa Tempat (Proporsional Bulanan)    : Rp .............................................
+   4. Biaya Kas Kecil Rutin Toko                  : Rp .............................................
+   TOTAL BIAYA OPERASIONAL GERAI                  : Rp .............................................
+
+IV. PERHITUNGAN KEWAJIBAN WARALABA (FRANCHISE ROYALTY &amp; MARKETING LEVY)
+   - Royalty Fee (5% x Gross Revenue)             : Rp .............................................
+   - Marketing &amp; Promo Levy (2% x Gross Revenue)  : Rp .............................................
+   TOTAL KEWAJIBAN BULANAN KE DUTAGLOBALTECH.COM  : Rp .............................................
+   (Jatuh tempo pembayaran tanggal 10 tiap bulan via Virtual Account Giro Resmi)
+
+LABA BERSIH BULANAN GERAI MITRA (NET PROFIT)      : Rp .............................................
+
+Disusun Akuntan Gerai,       Diverifikasi Store Manager,       Disetujui Franchisee Owner,
+
+(........................)   (........................)        (........................)</code></pre>
+<hr class="section-divider" />
+<h2 id="sec-modul-7-keselamatan-kerja-tanggap-darurat-k3-hse" class="heading-2">MODUL 7: KESELAMATAN KERJA &amp; TANGGAP DARURAT (K3 / HSE)</h2>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-k3-01-kartu-distribusi-inspeksi-alat-pelindung-diri-apd" class="heading-3 sop-card-header">[FRM-SNA-K3-01] KARTU DISTRIBUSI &amp; INSPEKSI ALAT PELINDUNG DIRI (APD)</h3>
+<p><em>(Rujukan: SOP-7.1 Penggunaan Alat Pelindung Diri)</em></p>
+<pre><code>====================================================================================================
+                  SNAPRINT DIGITAL PRINTING - PPE DISTRIBUTION &amp; AUDIT CARD
+====================================================================================================
+Nama Karyawan : ...................................   Posisi / Unit Kerja : ........................
+Tanggal Masuk : ..... / ..... / 202...                Departemen          : Produksi &amp; Finishing
+
+A. REKAMAN PENYERAHAN ALAT PELINDUNG DIRI (APD RESMI):
++----+--------------------------------+--------------------+---------------+-----------------------+
+| NO |        JENIS APD STANDAR       | SPESIFIKASI MUTU   | TANGGAL SERAH | TANDA TANGAN KARYAWAN |
++----+--------------------------------+--------------------+---------------+-----------------------+
+|  1 | Masker Respirator Uap Kimia    | Filter ABEK1 Gas   | ...../...../..| (...................) |
+|  2 | Sarung Tangan Anti-Sayat Pisau | HPPE Cut-Level 5   | ...../...../..| (...................) |
+|  3 | Sarung Tangan Tahan Panas      | Nitril Termal 200°C| ...../...../..| (...................) |
+|  4 | Pelindung Telinga Ear Plug     | Reduksi SNR 25 dB  | ...../...../..| (...................) |
+|  5 | Kacamata Pengaman (Goggles)    | Clear Polycarbonate| ...../...../..| (...................) |
+|  6 | Sepatu Keselamatan Safety Toe  | Steel Toe 200 J    | ...../...../..| (...................) |
++----+--------------------------------+--------------------+---------------+-----------------------+
+
+B. CEKLIS KEPATUHAN PEMAKAIAN APD BULANAN (AUDIT OLEH PETUGAS K3 GERAI):
+[ ] Operator selalu mengenakan respirator saat mengoperasikan mesin outdoor eco-solvent/UV
+[ ] Operator mesin pemotong selalu mengenakan sarung tangan baja saat mengganti pisau/memotong
+[ ] Rambut terikat rapi di dalam topi dan tidak memakai perhiasan cincin/kalung saat mesin berputar
+Status Kepatuhan K3 : [ ] DISIPLIN PENUH (100%)       [ ] DITEGUR KARENA MELANGGAR
+Petugas K3 Outlet : (...............................)  Tanggal Inspeksi : ...../...../202...</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-k3-02-kartu-inspeksi-jarum-manometer-tabung-apar" class="heading-3 sop-card-header">[FRM-SNA-K3-02] KARTU INSPEKSI JARUM MANOMETER &amp; TABUNG APAR</h3>
+<p><em>(Rujukan: SOP-7.2 Tanggap Darurat Kebakaran)</em></p>
+<pre><code>====================================================================================================
+                      SNAPRINT DIGITAL PRINTING - FIRE SAFETY APAR CARD
+====================================================================================================
+Nomor Tabung APAR : APAR-01 (Area Panel Listrik)       Tipe Media : Gas CO2 / Dry Powder 5 Kg
+Lokasi Pemasangan : Dinding Utama Dekat Stabilizer     Tinggi     : 120 cm dari lantai
+
++-------+---------------+---------------+---------------+-------------------+---------------+------+
+| BULAN | POSISI JARUM  | KONDISI PIN   | SELANG NOZZLE | FISIK TABUNG      | TANGGAL AUDIT | PARAF|
+|       | TEKANAN HIJAU | SEGEL PENGAMAN| (TIDAK RETAK) | BEBAS KARAT/BOCOR | &amp; KEDALUWARSA | PIC  |
++-------+---------------+---------------+---------------+-------------------+---------------+------+
+| Jan   | [ ] Normal OK | [ ] Tersegel  | [ ] Lentur OK | [ ] Mulus Baik    | ...../...../..| .... |
+| Feb   | [ ] Normal OK | [ ] Tersegel  | [ ] Lentur OK | [ ] Mulus Baik    | ...../...../..| .... |
+| Mar   | [ ] Normal OK | [ ] Tersegel  | [ ] Lentur OK | [ ] Mulus Baik    | ...../...../..| .... |
+| Apr   | [ ] Normal OK | [ ] Tersegel  | [ ] Lentur OK | [ ] Mulus Baik    | ...../...../..| .... |
++-------+---------------+---------------+---------------+-------------------+---------------+------+
+Peringatan: Jika jarum tekanan turun ke zona MERAH, segera bawa tabung ke depo isi ulang rekanan.</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-k3-03a-kartu-kontrol-kedaluwarsa-kotak-p3k" class="heading-3 sop-card-header">[FRM-SNA-K3-03A] KARTU KONTROL KEDALUWARSA KOTAK P3K</h3>
+<p><em>(Rujukan: SOP-7.3 Protokol Pertolongan Pertama / P3K)</em></p>
+<pre><code>====================================================================================================
+                     SNAPRINT DIGITAL PRINTING - FIRST AID INVENTORY CARD
+====================================================================================================
+Lokasi Kotak P3K : Dinding Koridor Finishing           Penanggung Jawab: Petugas P3K Gerai
+
++----+--------------------------------+--------+-----------+---------------+-----------------------+
+| NO |      NAMA PERLENGKAPAN OBAT    | SATUAN | SISA STOK | TGL KEDALUWARSA| STATUS KELAYAKAN     |
++----+--------------------------------+--------+-----------+---------------+-----------------------+
+|  1 | Kasa Steril Terbungkus         | Boks   |     5     | ...../...../..| [ ] Baik Siap Pakai   |
+|  2 | Perban Gulung Elastis 5 cm     | Rol    |     4     | ...../...../..| [ ] Baik Siap Pakai   |
+|  3 | Plester Cepat Luka Anti-Air    | Boks   |     1     | ...../...../..| [ ] Baik Siap Pakai   |
+|  4 | Cairan Povidone Iodine 10%     | Botol  |     2     | ...../...../..| [ ] Baik Siap Pakai   |
+|  5 | Cairan Alkohol Pembersih 70%   | Botol  |     1     | ...../...../..| [ ] Baik Siap Pakai   |
+|  6 | Salep Luka Bakar Bioplacenton  | Tube   |     2     | ...../...../..| [ ] Baik Siap Pakai   |
+|  7 | Obat Tetes Cuci Mata Steril    | Botol  |     2     | ...../...../..| [ ] Baik Siap Pakai   |
+|  8 | Gunting Medis &amp; Pinset Logam   | Set    |     1     | Selalu Siap   | [ ] Steril Bersih     |
++----+--------------------------------+--------+-----------+---------------+-----------------------+
+Tanggal Pemeriksaan Rutin Bulanan : ..... / ..... / 202...   Paraf Petugas P3K : (..................)</code></pre>
+<hr class="section-divider" />
+<h3 id="sec-frm-sna-k3-03b-laporan-investigasi-insiden-kecelakaan-kerja" class="heading-3 sop-card-header">[FRM-SNA-K3-03B] LAPORAN INVESTIGASI INSIDEN KECELAKAAN KERJA</h3>
+<p><em>(Rujukan: SOP-7.3 Protokol Pertolongan Pertama / P3K)</em></p>
+<pre><code>====================================================================================================
+                 SNAPRINT DIGITAL PRINTING - WORK ACCIDENT INCIDENT REPORT
+====================================================================================================
+Nomor Insiden    : INC-...../...../202...              Waktu Insiden   : ...../...../202... - ...:...
+Nama Korban      : ..................................  Unit Departemen : [ ] Cetak   [ ] Finishing
+Nama Saksi Mata  : ..................................  Tempat Kejadian : ............................
+
+I. KRONOLOGI INSIDEN KECELAKAAN:
+Jenis Cedera     : [ ] Luka Sayat Pisau Cutter/Potong   [ ] Terjepit Rol Mesin Berputar
+                   [ ] Percikan Tinta/Pelarut ke Mata   [ ] Terpeleset / Tertimpa Palet Berat
+Deskripsi Lengkap Kronologi Peristiwa: .............................................................
+....................................................................................................
+....................................................................................................
+
+II. TINDAKAN PERTOLONGAN PERTAMA YANG DIBERIKAN:
+[ ] Penekanan kasa steril langsung pada luka berdarah (Direct Pressure)
+[ ] Pembilasan air mengalir kontinu pada mata korban selama 15 menit
+[ ] Penekanan tombol darurat E-Stop mesin untuk pembebasan anggota badan
+Penanganan Lanjutan : [ ] Cukup Rawat Jalan P3K Gerai  [ ] Dirujuk ke UGD Klinik / RS Terdekat
+Nama Fasilitas Medis: ..............................................................................
+
+III. TINDAKAN KOREKTIF &amp; PENCEGAHAN (CORRECTIVE ACTION):
+Akar Penyebab Insiden : [ ] Kelalaian Tidak Pakai APD    [ ] Prosedur Kerja Dilanggar
+                        [ ] Pelindung Mesin Tidak Aktif  [ ] Kelelahan Fisik Jam Kerja Lembur
+Aksi Pencegahan Masa Depan: ........................................................................
+....................................................................................................
+
+Tanda Tangan Korban,         Tanda Tangan Saksi Mata,         Tanda Tangan Store Manager,
+
+(........................)   (............................)   (............................)</code></pre>
+<hr class="section-divider" />
+<h1 id="sec-lembar-pengesahan-dokumen-kontrol-operasional" class="heading-1">LEMBAR PENGESAHAN DOKUMEN KONTROL OPERASIONAL</h1>
+<p>Master Bundel Formulir dan Dokumen Kontrol Operasional Resmi <strong>SNAPRINT DIGITAL PRINTING</strong> ini telah divalidasi dan disahkan secara mengikat oleh Manajemen <strong>dutaglobaltech.com</strong> untuk diberlakukan serentak di seluruh gerai waralaba Snaprint Digital Printing.</p>
+<p>Ditetapkan di : Jakarta</p>
+<p>Pada Tanggal  : 29 Oktober 2026</p>
+<pre><code>+-----------------------------------+-----------------------------------+
+|            Disusun Oleh:          |           Ditinjau Oleh:          |
+|                                   |                                   |
+|   TIM MUTU &amp; AUDIT OPERASIONAL    |     HEAD OF FRANCHISE COMPLIANCE  |
+|   Snaprint Digital Printing       |       PT Duta Global Tech         |
++-----------------------------------+-----------------------------------+
+|           Disetujui Oleh:         |          Disahkan Oleh:           |
+|                                   |                                   |
+|       DIREKTUR OPERASIONAL        |      DIREKTUR UTAMA / CEO         |
+|       dutaglobaltech.com          |       PT Duta Global Tech         |
++-----------------------------------+-----------------------------------+</code></pre>
+<hr class="section-divider" />
+<p><em>Dokumen Master Lampiran Resmi - Snaprint Digital Printing, operated by dutaglobaltech.com. Seluruh hak cipta dilindungi undang-undang.</em></p>
+</div>
+    </main>
+  </div>
+  <script>
+    function filterTOC() {
+      const input = document.getElementById('sopSearch').value.toLowerCase();
+      const listItems = document.querySelectorAll('.toc-list li');
+      listItems.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
