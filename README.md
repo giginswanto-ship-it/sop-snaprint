@@ -19,6 +19,7 @@ Dokumen dirancang dengan standar kualitas tinggi untuk menjamin konsistensi mutu
 
 | Berkas | Format | Deskripsi |
 | :--- | :---: | :--- |
+| **`snaprint_laravel/`** | **Laravel App** | **Sistem Web Berbasis Data SQL & Laravel 10**: Seluruh modul, SOP, formulir, dan logbook terintegrasi penuh ke database relasional dengan tampilan & gaya identik. |
 | **`BUNDEL_SOP_SNAPRINT_MASTER_LENGKAP.pdf`** | PDF | **Buku Induk Master Lengkap** (1.43 MB) berisi pedoman pembukaan gerai, 7 modul 26 SOP, dan 26 dokumen kontrol operasional. |
 | **`LAMPIRAN_DOKUMEN_KONTROL_SNAPRINT.pdf`** | PDF | **Bundel Khusus Formulir & Dokumen Kontrol** (419 KB) siap cetak (*print-ready*) untuk operasional harian gerai. |
 | **`BUNDEL_SOP_SNAPRINT_DIGITAL_BOOK.html`** | HTML | Digital Book e-Book interaktif lengkap dengan sidebar daftar isi dinamis, pencarian cepat, dan fitur cetak instan. |
